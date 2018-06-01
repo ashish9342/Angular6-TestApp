@@ -7,13 +7,17 @@ import { ServerComponent } from './server/server.component';
 
 import { AppComponent } from './app.component';
 import { ServersComponent } from './servers/servers.component';
+import { CockpitComponent } from './cockpit/cockpit.component';
+import { ServerElementComponent } from './server-element/server-element.component';
 
 @NgModule({
   // write all components in the declaration
   declarations: [
     AppComponent,
     ServerComponent,
-    ServersComponent    
+    ServersComponent,
+    CockpitComponent,
+    ServerElementComponent    
   ],
   imports: [
     BrowserModule,
