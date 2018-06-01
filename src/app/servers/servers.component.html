@@ -1,0 +1,55 @@
+
+<!-- <input
+  type="text"
+  class="form-control"
+  (input) = "onUpdateServerName($event)"/> -->
+
+  <input
+  type="text"
+  class="form-control"
+  [(ngModel)] = "serverName"/>
+
+  <p>{{serverName}}</p>
+
+<button class="btn btn-primary"
+[disabled] ="!allowNewserver"
+(click)="createServer()">
+Add server</button>
+
+<p>{{ createServerStatus }}</p>
+
+ <app-server *ngFor="let server of servers"></app-server>
+<!-- TEst -->
+<!--********************* Assignment 1 ******************-->
+<!-- <hr/>
+<input
+  type="text"
+  class="form-control"
+  [(ngModel)] = "username"/>
+
+  <p>{{username}}</p>
+
+<button class="btn btn-primary"
+[disabled] ="username.length === 0"
+(click)="submitUsername()">
+Add username</button> -->
+
+<!--************************* Assignment 2*************************** -->
+
+<hr/>
+<!-- <button
+  type="button"
+  name="button"
+  class="btn btn-warning"
+  (click) = "para = !para">Display Details</button> -->
+
+  <button
+    type="button"
+    name="button"
+    class="btn btn-warning"
+    (click) = "toggleParagraph()">Display Details</button>
+
+<p *ngIf="para">Some paragraph</p>
+<div *ngFor = "let logItem of log; let i = index"
+      [ngStyle] ="{'background-color' : (i >= 5 ? 'blue' : 'gray') }"
+      [ngClass] = "{'white-text' :i >= 5 }"> {{logItem }}</div>
