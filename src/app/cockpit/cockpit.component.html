@@ -9,10 +9,12 @@
     <!-- creating local references -->
 
     <label for="">Server Content</label>
-    <input type="text" class="form-control mb-4" [(ngModel)]="newServerContent">
+    <!-- <input type="text" class="form-control mb-4" [(ngModel)]="newServerContent"> -->
+    <input type="text" class="form-control mb-4" #serverContentInput>
+
 
     <button class="btn btn-primary mr-2" (click)="onAddServer(serverNameInput)">Add Server</button>
-    <button class="btn btn-primary" (click)="onAddBlueprint()">Add Blueprint</button>
+    <button class="btn btn-primary" (click)="onAddBlueprint(serverNameInput)">Add Blueprint</button>
 
 
   </div>

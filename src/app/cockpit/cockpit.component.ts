@@ -1,4 +1,4 @@
-import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output, ViewChild, ElementRef } from '@angular/core';
 import { log } from 'util';
 
 @Component({
@@ -10,6 +10,9 @@ export class CockpitComponent implements OnInit {
   @Output() serverCreated = new EventEmitter<{ serverName: string, serverContent: string }>();
   @Output() blueprintCreated = new EventEmitter<{ serverName: string, serverContent: string }>();
 
+  // get access before the methos is called
+  // @ViewChild(CockpitComponent) serverContentInput;
+  @ViewChild('serverContentInput') serverContentInput: ElementRef;
   // newServerName = '';
   newServerContent = '';
   // serverElements = [];
@@ -19,7 +22,7 @@ export class CockpitComponent implements OnInit {
     this.serverCreated.emit({
       // serverName : this.newServerName,
       serverName: nameInput.value,
-      serverContent: this.newServerContent
+      serverContent: this.serverContentInput.nativeElement.value
     });
   }
 
@@ -27,12 +30,13 @@ export class CockpitComponent implements OnInit {
     this.blueprintCreated.emit({
       // serverName: this.newServerName,
       serverName: nameInput.value,
-      serverContent: this.newServerContent
+      serverContent: this.serverContentInput.nativeElement.value
     });
   }
   constructor() { }
 
   ngOnInit() {
   }
+
 
 }
